@@ -80,6 +80,7 @@ spec:
 ```
 
 Ingress Example
+This Ingress Example expects you to have nginx ingressclass added, and also External-DNS and Cert-Manager pre-configured
 ```
 apiVersion: networking.k8s.io/v1
 kind: Ingress
