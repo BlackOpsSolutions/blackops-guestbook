@@ -1,4 +1,8 @@
-Kubernetes Manifest Example with ENV Var for BGColours
+Kubernetes 
+--
+
+Deployment Manifest Example with ENV Var for BGColours
+-
 ``` 
 apiVersion: apps/v1
 kind: Deployment
@@ -27,6 +31,7 @@ spec:
 ```
 
 Example Service for API Deployment
+-
 
 ```
 apiVersion: v1
@@ -45,6 +50,7 @@ spec:
 ```
 
 Redis Deployment
+-
 ```
 
 ---
