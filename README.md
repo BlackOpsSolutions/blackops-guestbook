@@ -1,0 +1,26 @@
+
+``` Kubernetes Manifest Example with ENV Var for BGColours
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guestbook-backend
+  namespace: sample-webapp2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guestbook
+  template:
+    metadata:
+      labels:
+        app: guestbook
+    spec:
+      containers:
+      - name: backend
+        image: tblackedg/guestbook-backend:main
+        ports:
+        - containerPort: 3000
+        env:
+        - name: BG_COLOR
+          # value: "#f0f8ff"  # Light blue
+          value: "#ff0000"  # Red
