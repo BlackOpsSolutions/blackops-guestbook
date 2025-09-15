@@ -3,7 +3,8 @@ const redis = require('redis');
 const bodyParser = require('body-parser');
 
 const app = express();
-const client = redis.createClient({ url: 'redis://redis:6379' });
+const redisUrl = process.env.REDIS_URL || 'redis://redis:6379';
+const client = redis.createClient({ url: redisUrl });
 
 client.connect().catch(console.error);
 
