@@ -6,6 +6,7 @@ on:
     branches: [ "main" ]
     paths:
       - 'infra/helm/**'
+      - '.github/workflows/helm.yaml'
 
 permissions:
   contents: write     # 👈 allow GITHUB_TOKEN to push commits
