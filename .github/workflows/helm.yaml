@@ -4,23 +4,23 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'guestbook-chart/**'          # run only if chart files change
+      - 'infra/helm/**'              # 👈 only run on chart changes
   pull_request:
     branches: [ "main" ]
     paths:
-      - 'guestbook-chart/**'
+      - 'infra/helm/**'
 
 jobs:
-  build:                                # your existing build/test job
+  build:                              # your existing job
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # ... your existing steps here ...
+      # ... existing build/test steps ...
 
   helm:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'     # run only on push to main
-    needs: build                        # wait for build/tests if needed
+    if: github.event_name == 'push'
+    needs: build                      # ensure your app builds first
     steps:
       - uses: actions/checkout@v4
 
@@ -29,12 +29,14 @@ jobs:
         with:
           version: v3.14.0
 
+      # Get current chart version
       - name: Get current chart version
         id: get_version
         run: |
-          version=$(grep '^version:' guestbook-chart/Chart.yaml | awk '{print $2}')
+          version=$(grep '^version:' infra/helm/Chart.yaml | awk '{print $2}')
           echo "version=$version" >> $GITHUB_OUTPUT
 
+      # Bump patch version (X.Y.Z → X.Y.(Z+1))
       - name: Bump chart patch version
         id: bump_version
         run: |
@@ -42,33 +44,37 @@ jobs:
           base=$(echo $old | cut -d. -f1-2)
           patch=$(echo $old | cut -d. -f3)
           new="$base.$((patch+1))"
-          echo "Bumping $old -> $new"
-          sed -i "s/^version:.*/version: $new/" guestbook-chart/Chart.yaml
+          echo "Bumping $old → $new"
+          sed -i "s/^version:.*/version: $new/" infra/helm/Chart.yaml
           echo "new_version=$new" >> $GITHUB_OUTPUT
 
+      # Commit updated version
       - name: Commit bumped version
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "chore: bump chart version to ${{ steps.bump_version.outputs.new_version }}"
+          git commit -am "chore(helm): bump chart version to ${{ steps.bump_version.outputs.new_version }}"
           git push origin HEAD:${GITHUB_REF_NAME}
 
+      # Lint and package chart
       - name: Lint and package chart
         run: |
-          helm lint guestbook-chart
-          helm package guestbook-chart
+          helm lint infra/helm
+          helm package infra/helm
           mkdir -p artifacts
-          mv guestbook-*.tgz artifacts/
+          mv *.tgz artifacts/
 
+      # Upload chart as workflow artifact
       - name: Upload Helm chart artifact
         uses: actions/upload-artifact@v4
         with:
           name: guestbook-helm-chart
           path: artifacts/*.tgz
 
+      # Create GitHub Release with the chart attached
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.bump_version.outputs.new_version }}
-          name: "Guestbook Chart v${{ steps.bump_version.outputs.new_version }}"
+          name: "Helm Chart v${{ steps.bump_version.outputs.new_version }}"
           files: artifacts/*.tgz
