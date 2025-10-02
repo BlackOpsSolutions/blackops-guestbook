@@ -57,7 +57,7 @@ jobs:
           git commit -am "chore(helm): bump chart version to ${{ steps.bump_version.outputs.new_version }}"
           git push origin HEAD:${GITHUB_REF_NAME}
 
-            - name: Lint and package chart
+      - name: Lint and package chart
         run: |
           helm lint infra/helm
           helm package infra/helm
