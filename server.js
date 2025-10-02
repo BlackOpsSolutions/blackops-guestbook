@@ -84,5 +84,5 @@ app.get('/healthz', async (req, res) => {
     res.status(500).send('Unhealthy');
   }
 });
-
+console.log(process.env.REDIS_URL);
 app.listen(3000, () => console.log('Server running on port 3000'));
