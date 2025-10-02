@@ -3,7 +3,17 @@ entries:
   guestbook:
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T12:12:17.633384141Z"
+    created: "2025-10-02T12:20:53.473785293Z"
+    description: A simple Guestbook app with Redis backend
+    digest: ac5db4976c8e69d656f67e048cf05a1d5a4e5e1a333c4d7917db9446c52958b6
+    name: guestbook
+    type: application
+    urls:
+    - https://blackopssolutions.github.io/blackops-guestbook/guestbook-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2025-10-02T12:20:53.473498057Z"
     description: A simple Guestbook app with Redis backend
     digest: b6c756ee17b87021f64cb3491e4654c46480feb2bfe26da5463a0485b358bb28
     name: guestbook
@@ -13,7 +23,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T12:12:17.633085974Z"
+    created: "2025-10-02T12:20:53.473206322Z"
     description: A simple Guestbook app with Redis backend
     digest: 4d0d40016cd1bb0f36768fe2e05b2ca43226f9e8547d76415e8d96b2abe54b7e
     name: guestbook
@@ -23,7 +33,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T12:12:17.632813115Z"
+    created: "2025-10-02T12:20:53.472906233Z"
     description: A simple Guestbook app with Redis backend
     digest: 84917f0b3573986de946cfdd777d5ce3733baf5712b6938582ee7e092609a2a2
     name: guestbook
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://blackopssolutions.github.io/blackops-guestbook/guestbook-0.1.3.tgz
     version: 0.1.3
-generated: "2025-10-02T12:12:17.632390646Z"
+generated: "2025-10-02T12:20:53.472455822Z"
