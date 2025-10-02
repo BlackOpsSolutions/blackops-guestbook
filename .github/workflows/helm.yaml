@@ -57,6 +57,30 @@ jobs:
           git commit -am "chore(helm): bump chart version to ${{ steps.bump_version.outputs.new_version }}"
           git push origin HEAD:${GITHUB_REF_NAME}
       
+      # Lint and package chart
+      - name: Lint and package chart
+        run: |
+          helm lint infra/helm
+          helm package infra/helm
+          mkdir -p artifacts
+          mv *.tgz artifacts/
+
+      # Upload chart as workflow artifact
+      - name: Upload Helm chart artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: guestbook-helm-chart
+          path: artifacts/*.tgz
+
+      # Create GitHub Release with the chart attached
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.bump_version.outputs.new_version }}
+          name: "Helm Chart v${{ steps.bump_version.outputs.new_version }}"
+          files: artifacts/*.tgz
+
+          
       - name: Lint and package chart
         run: |
           helm lint infra/helm
@@ -77,17 +101,3 @@ jobs:
           git commit -m "chore(helm): publish chart v${{ steps.bump_version.outputs.new_version }}"
           git push origin HEAD:${GITHUB_REF_NAME}
 
-      # Upload chart as workflow artifact
-      - name: Upload Helm chart artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: guestbook-helm-chart
-          path: docs/*.tgz
-
-      # Create GitHub Release with the chart attached
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: v${{ steps.bump_version.outputs.new_version }}
-          name: "Helm Chart v${{ steps.bump_version.outputs.new_version }}"
-          files: artifacts/*.tgz
