@@ -57,13 +57,25 @@ jobs:
           git commit -am "chore(helm): bump chart version to ${{ steps.bump_version.outputs.new_version }}"
           git push origin HEAD:${GITHUB_REF_NAME}
 
-      # Lint and package chart
-      - name: Lint and package chart
+            - name: Lint and package chart
         run: |
           helm lint infra/helm
           helm package infra/helm
-          mkdir -p artifacts
-          mv *.tgz artifacts/
+          mkdir -p docs
+          mv guestbook-*.tgz docs/
+
+      # 👇 This step creates or updates index.yaml
+      - name: Generate Helm repo index
+        run: |
+          helm repo index docs --url https://blackopssolutions.github.io/blackops-guestbook
+
+      - name: Commit chart and index
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/*
+          git commit -m "chore(helm): publish chart v${{ steps.bump_version.outputs.new_version }}"
+          git push origin HEAD:${GITHUB_REF_NAME}
 
       # Upload chart as workflow artifact
       - name: Upload Helm chart artifact
