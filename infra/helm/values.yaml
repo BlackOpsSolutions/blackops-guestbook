@@ -1,0 +1,51 @@
+replicaCount: 1
+
+image:
+  repository: timblackops/guestbook
+  tag: main
+  pullPolicy: IfNotPresent
+
+service:
+  port: 3000          # Container port
+  targetPort: 3000
+  servicePort: 80     # ClusterIP/Ingress entry port
+
+env:
+  bgColor: "#f0f8ff"
+  redisUrl: ""        # Leave empty to use internal Redis service
+
+probe:
+  path: /healthz
+  liveness:
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 2
+    failureThreshold: 3
+  readiness:
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 2
+    failureThreshold: 3
+
+ingress:
+  enabled: true
+  class: nginx
+  proxyBufferSize: 16k
+  proxyConnectTimeout: 300
+  proxyReadTimeout: 300
+  proxySendTimeout: 300
+  forceSSLRedirect: "true"
+
+  host: guestbook.local
+  tlsSecretName: guestbook-tls
+  pathType: ImplementationSpecific
+
+redis:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: redis
+    tag: "6"
+    pullPolicy: IfNotPresent
+  service:
+    port: 6379
