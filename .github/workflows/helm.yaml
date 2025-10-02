@@ -56,7 +56,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "chore(helm): bump chart version to ${{ steps.bump_version.outputs.new_version }}"
           git push origin HEAD:${GITHUB_REF_NAME}
-
+      
       - name: Lint and package chart
         run: |
           helm lint infra/helm
@@ -82,7 +82,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: guestbook-helm-chart
-          path: artifacts/*.tgz
+          path: docs/*.tgz
 
       # Create GitHub Release with the chart attached
       - name: Create GitHub Release
