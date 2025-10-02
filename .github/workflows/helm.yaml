@@ -1,14 +1,14 @@
 name: Helm Chart CI/CD
 
+
 on:
   push:
     branches: [ "main" ]
     paths:
-      - 'infra/helm/**'              # 👈 only run on chart changes
-  pull_request:
-    branches: [ "main" ]
-    paths:
       - 'infra/helm/**'
+
+permissions:
+  contents: write     # 👈 allow GITHUB_TOKEN to push commits
 
 jobs:
   build:                              # your existing job
