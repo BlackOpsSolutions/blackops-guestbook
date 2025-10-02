@@ -73,5 +73,16 @@ app.post('/messages', async (req, res) => {
   await client.lPush('messages', JSON.stringify(msg));
   res.status(201).send('Message added');
 });
+// Health check endpoint
+app.get('/healthz', async (req, res) => {
+  try {
+    // Optionally check Redis connectivity
+    await client.ping();
+    res.status(200).send('OK');
+  } catch (err) {
+    console.error('Health check failed:', err);
+    res.status(500).send('Unhealthy');
+  }
+});
 
 app.listen(3000, () => console.log('Server running on port 3000'));
