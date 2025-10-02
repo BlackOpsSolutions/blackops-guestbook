@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: timblackops/guestbook
-  tag: main
+  tag: v1.0.0
   pullPolicy: IfNotPresent
 
 service:
