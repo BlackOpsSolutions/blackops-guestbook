@@ -3,72 +3,82 @@ entries:
   guestbook:
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T13:04:17.145065808Z"
+    created: "2025-10-06T08:59:20.106830079Z"
+    description: A simple Guestbook app with Redis backend
+    digest: 4287fc63c335f2d2f151c858345ab786455a4e54ddeadec405d5052781229c45
+    name: guestbook
+    type: application
+    urls:
+    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.10/guestbook-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2025-10-06T08:59:20.110154949Z"
     description: A simple Guestbook app with Redis backend
     digest: a2980d98e2fa68fc18f444e5b63449c3ac2e5eef1df042ad21f4ea36c9fe1c31
     name: guestbook
     type: application
     urls:
-    - https://blackopssolutions.github.io/blackops-guestbook/guestbook-0.1.9.tgz
+    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.10/guestbook-0.1.9.tgz
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T13:04:17.144794732Z"
+    created: "2025-10-06T08:59:20.109823158Z"
     description: A simple Guestbook app with Redis backend
     digest: 38af52631d952c1ddbf0c34071e318d7289376b3ff51d7aafb213d2a10a865de
     name: guestbook
     type: application
     urls:
-    - https://blackopssolutions.github.io/blackops-guestbook/guestbook-0.1.8.tgz
+    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.10/guestbook-0.1.8.tgz
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T13:04:17.144519528Z"
+    created: "2025-10-06T08:59:20.109062045Z"
     description: A simple Guestbook app with Redis backend
     digest: f76b777ea29605f840590424c389b0ad0e63d15480c91fb794e2011bfd8b79cd
     name: guestbook
     type: application
     urls:
-    - https://blackopssolutions.github.io/blackops-guestbook/guestbook-0.1.7.tgz
+    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.10/guestbook-0.1.7.tgz
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T13:04:17.144258541Z"
+    created: "2025-10-06T08:59:20.107918075Z"
     description: A simple Guestbook app with Redis backend
     digest: ac5db4976c8e69d656f67e048cf05a1d5a4e5e1a333c4d7917db9446c52958b6
     name: guestbook
     type: application
     urls:
-    - https://blackopssolutions.github.io/blackops-guestbook/guestbook-0.1.6.tgz
+    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.10/guestbook-0.1.6.tgz
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T13:04:17.143950946Z"
+    created: "2025-10-06T08:59:20.107656195Z"
     description: A simple Guestbook app with Redis backend
     digest: b6c756ee17b87021f64cb3491e4654c46480feb2bfe26da5463a0485b358bb28
     name: guestbook
     type: application
     urls:
-    - https://blackopssolutions.github.io/blackops-guestbook/guestbook-0.1.5.tgz
+    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.10/guestbook-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T13:04:17.143680411Z"
+    created: "2025-10-06T08:59:20.107393173Z"
     description: A simple Guestbook app with Redis backend
     digest: 4d0d40016cd1bb0f36768fe2e05b2ca43226f9e8547d76415e8d96b2abe54b7e
     name: guestbook
     type: application
     urls:
-    - https://blackopssolutions.github.io/blackops-guestbook/guestbook-0.1.4.tgz
+    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.10/guestbook-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-02T13:04:17.143366765Z"
+    created: "2025-10-06T08:59:20.107111626Z"
     description: A simple Guestbook app with Redis backend
     digest: 84917f0b3573986de946cfdd777d5ce3733baf5712b6938582ee7e092609a2a2
     name: guestbook
     type: application
     urls:
-    - https://blackopssolutions.github.io/blackops-guestbook/guestbook-0.1.3.tgz
+    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.10/guestbook-0.1.3.tgz
     version: 0.1.3
-generated: "2025-10-02T13:04:17.14288759Z"
+generated: "2025-10-06T08:59:20.106399945Z"
