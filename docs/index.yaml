@@ -3,12 +3,12 @@ entries:
   guestbook:
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2025-10-06T11:04:35.440322274Z"
+    created: "2025-10-06T11:12:19.685285854Z"
     description: A simple Guestbook app with Redis backend
-    digest: d1ca138fb56c61b977b41a0927a771e2c598cf65978aa3bade4a614c231c3578
+    digest: 37cff812ea7f756277d795e72440ef09ced847582248b02662bd46a6d91bf8c7
     name: guestbook
     type: application
     urls:
-    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.11/guestbook-0.1.11.tgz
-    version: 0.1.11
-generated: "2025-10-06T11:04:35.439888742Z"
+    - https://github.com/BlackOpsSolutions/blackops-guestbook/releases/download/v0.1.12/guestbook-0.1.12.tgz
+    version: 0.1.12
+generated: "2025-10-06T11:12:19.684836066Z"
