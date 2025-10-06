@@ -11,7 +11,6 @@ service:
   servicePort: 80     # ClusterIP/Ingress entry port
 
 env:
-  bgColor: "#f0f8ff"
   redisUrl: ""        # Leave empty to use internal Redis service
 
 probe:

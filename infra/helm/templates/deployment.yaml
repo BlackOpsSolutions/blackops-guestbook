@@ -23,7 +23,7 @@ spec:
             - containerPort: {{ .Values.service.port }}
           env:
             - name: BG_COLOR
-              value: {{ .Values.env.bgColor | quote }}
+              value: "{{ .Values.env.bgColor | quote | default "#f0f8ff" }}"
             - name: REDIS_URL
               value: {{ if .Values.env.redisUrl }}{{ .Values.env.redisUrl | quote }}{{ else }}"redis://{{ include "guestbook.fullname" . }}-redis:{{ .Values.redis.service.port }}"{{ end }}
           # livenessProbe:
